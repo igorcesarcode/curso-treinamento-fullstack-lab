@@ -8,6 +8,8 @@ const mult = function (num1,num2){
     return num1 * num2;
 }
 
+
+// High order function
 const operacao = function (operacao,num1,num2){
     return operacao(num1,num2);
 }
