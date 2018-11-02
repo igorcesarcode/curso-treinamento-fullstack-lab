@@ -1,13 +1,15 @@
 console.log('Olha Fullstack Lab')
 
-let a = 10;
-const repetidor = 10;
-if (a>20){
-    //verdadeiro
-}else{
-    //falso
+const soma = function (num1,num2){
+    return num1 + num2;
 }
 
-for (let i=0; i<repetidor; i++){
-    console.log('Repetidor número:',i);
+const mult = function (num1,num2){
+    return num1 * num2;
 }
+
+const operacao = function (operacao,num1,num2){
+    return operacao(num1,num2);
+}
+console.log('Soma:',operacao(soma,10,20));
+console.log('Mult:',operacao(mult,10,20));
