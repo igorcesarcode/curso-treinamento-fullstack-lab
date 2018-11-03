@@ -6,8 +6,11 @@ app.set('view engine', 'ejs')
 //Pegando a porta do ambinte caso não consiga ela inicia na porta 3000
 const port = process.env.PORT  || 3000
 
+let i = 10
+
 app.get('/', (request, response) => {
-    response.render('index')
+    i++
+    response.render('index',{ i:i })
 })
 
 app.listen(port, (err) => {
