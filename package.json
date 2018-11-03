@@ -1,0 +1,22 @@
+{
+  "name": "curso-fullstack-lab",
+  "version": "1.0.0",
+  "description": "Curso de Treinamento do Canal DevPleno",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorcesarcode/curso-treinamento-fullstack-lab.git"
+  },
+  "author": "igorcesarcode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igorcesarcode/curso-treinamento-fullstack-lab/issues"
+  },
+  "homepage": "https://github.com/igorcesarcode/curso-treinamento-fullstack-lab#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
