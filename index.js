@@ -25,15 +25,31 @@ app.post('/categorias/nova', async(req, res) => {
     await axios.post('https://como-fazer-igorcesarcode.firebaseio.com/categorias.json', {
         categoria: req.body.categoria
     })
-    res.send(req.body)
+    res.redirect('/categorias')
     
 })
 
 app.get('/categorias', async (req,res) => {
     const content = await axios.get('https://como-fazer-igorcesarcode.firebaseio.com/categorias.json')
-     const categorias = Object.keys(content.data).map(key => content.data[key])
-    res.render('categorias/index', {categorias : categorias} )
+        if (content.data){
+        const categorias = Object
+                            .keys(content.data)
+                            .map(key => {
+                                return {
+                                    id:key,
+                                ...content.data[key]
+                                }
+                            })
+        res.render('categorias/index', {categorias : categorias} )
 
+        }else {
+            res.render('categorias/index', {categorias : []} )
+        }
+})
+
+app.get('/categorias/excluir/:id', async(req,res) =>{
+    await axios.delete(`https://como-fazer-igorcesarcode.firebaseio.com/categorias/${req.params.id}.json`)
+    res.redirect('/categorias')
 })
 
 
