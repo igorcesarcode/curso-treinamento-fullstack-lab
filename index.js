@@ -10,7 +10,6 @@ app.use(BodyParser.urlencoded())
 const port = process.env.PORT  || 3000
 
 
-
 app.get('/', async(request, response) => {
     const content = await axios.get('https://como-fazer-igorcesarcode.firebaseio.com/teste.json')
  
@@ -22,10 +21,20 @@ app.get('/categorias/nova', (req, res) => {
     res.render ('categorias/nova')
 })
 
-app.post('/categorias/nova', (req, res) => {
+app.post('/categorias/nova', async(req, res) => {
+    await axios.post('https://como-fazer-igorcesarcode.firebaseio.com/categorias.json', {
+        categoria: req.body.categoria
+    })
     res.send(req.body)
-    console.log (req.body)
+    
 })
+
+app.get('/categorias', async (req,res) => {
+    const content = await axios.get('https://como-fazer-igorcesarcode.firebaseio.com/categorias.json')
+    res.render('categorias/index', {categorias : content.data} )
+
+})
+
 
 
 app.listen(port, (err) => {
