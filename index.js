@@ -31,8 +31,8 @@ app.post('/categorias/nova', async(req, res) => {
 
 app.get('/categorias', async (req,res) => {
     const content = await axios.get('https://como-fazer-igorcesarcode.firebaseio.com/categorias.json')
-     
-    res.render('categorias/index', {categorias : content.data} )
+     const categorias = Object.keys(content.data).map(key => content.data[key])
+    res.render('categorias/index', {categorias : categorias} )
 
 })
 
