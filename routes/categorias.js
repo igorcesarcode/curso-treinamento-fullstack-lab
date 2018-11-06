@@ -3,7 +3,7 @@ const router = express.Router()
 const controller = require('../controllers/categorias')
 const api = require('../api')
 
-router.get('nova', controller.novaForm)
+router.get('/nova', controller.novaForm)
 
 router.post('/nova',controller.nova)
 
