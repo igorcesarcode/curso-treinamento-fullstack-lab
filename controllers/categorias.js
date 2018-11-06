@@ -1,5 +1,11 @@
 const api = require('../api')
 
+const list =  async (req,res) => {
+    const categorias = await api.list ('categorias')
+          res.render('categorias/index', { categorias })
+      
+}
+
 const novaForm = (req, res) => {
     res.render ('categorias/nova')
 }
@@ -12,12 +18,6 @@ const nova = async(req, res) => {
      res.redirect('/categorias')
      
  }
-
-const list =  async (req,res) => {
-    const categorias = await api.list ('categorias')
-          res.render('categorias/index', { categorias })
-      
-}
 
 const excluir = async(req,res) =>{
     await api.apagar('categorias',req.params.id)

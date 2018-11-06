@@ -3,11 +3,11 @@ const router = express.Router()
 const controller = require('../controllers/categorias')
 const api = require('../api')
 
+router.get('/', controller.list)
+
 router.get('/nova', controller.novaForm)
 
 router.post('/nova',controller.nova)
-
-router.get('/', controller.list)
 
 router.get('/excluir/:id', controller.excluir)
 
