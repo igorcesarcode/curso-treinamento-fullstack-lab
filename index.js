@@ -3,6 +3,7 @@ const app = express()
 const BodyParser = require('body-parser')
 
 const categorias = require('./routes/categorias.js')
+const publicacoes = require('./routes/publicacoes')
 
 
 app.set('view engine', 'ejs')
@@ -12,9 +13,7 @@ app.use(BodyParser.urlencoded())
 const port = process.env.PORT  || 3000
 
 app.get('/', async(request, response) => {
-    const content = await axios.get('https://como-fazer-igorcesarcode.firebaseio.com/teste.json')
- 
-    response.render('index',{ i:content.data })
+    response.render('index')
 })
 
 
@@ -26,3 +25,4 @@ app.listen(port, (err) => {
     }
 }) 
 app.use('/categorias', categorias)
+app.use('/publicacoes', publicacoes)
